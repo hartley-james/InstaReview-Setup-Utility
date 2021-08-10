@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Insta-Review Setup Utility</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles.css') }}">
+</head>
+
+<body>
+    <table width="100%" bgcolor="#ff9538">
+        <tr>
+            <td colspan="5" height="25%">
+                <center><h1 style="color:#FFFFFF">Insta-Review Setup Utility</h1></center>
+            </td>
+        </tr>
+    </table>
+    <!-- Google Places Input -->
+    <table align="center">
+        <tr>
+            <th>
+                <p style="color:#c9c9c9">Location / URL</p>
+            </th>
+            <th>
+                <p style="color:#c9c9c9">Generated ID</p>
+            </th>
+            <th>
+            </th>
+        </tr>
+        <tr>
+            <td>
+    <img src="{{ url_for('static', filename='google.png') }}" style="width:30px;height:30px;"></img>
+    <input id="pid-input" class="controls" type="text" placeholder="Start typing location name to search">
+            </td>
+            <td>
+                <input id="google-id" class="controls" type="text" placeholder="">
+            </td>
+            <td style="padding-left:20px; padding-top:10px">
+                <button style="width:60px" onclick="copyID('google-id')">Copy</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="{{ url_for('static', filename='facebook.png') }}" style="width:30px;height:30px;"></img>
+    <input id="fbid-input" class="controls" type="text" placeholder="Enter Facebook URL">
+            </td>
+            <td>
+                <input id="fb-id" class="controls" type="text" placeholder="">
+            </td>
+            <td style="padding-left:20px; padding-top:10px">
+                <button style="width:60px" onclick="copyID('fb-id')">Copy</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="{{ url_for('static', filename='yelp.png') }}" style="width:30px;height:30px;"></img>
+    <input id="yelp-input" class="controls" type="text" placeholder="Enter YELP URL">
+            </td>
+            <td>
+                <input id="yelp-id" class="controls" type="text" placeholder="">
+            </td>
+            <td style="padding-left:20px; padding-top:10px">
+                <button style="width:60px" onclick="copyID('yelp-id')">Copy</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="{{ url_for('static', filename='healthgrades.png') }}" style="width:30px;height:30px;"></img>
+    <input id="hg-input" class="controls" type="text" placeholder="Enter Healthgrades URL">
+            </td>
+            <td>
+                <input id="hg-id" class="controls" type="text" placeholder="">
+            </td>
+            <td style="padding-left:20px; padding-top:10px">
+                <button style="width:60px" onclick="copyID('hg-id')">Copy</button>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5" style="padding-top:40px">
+            <!-- Get Data -->
+    <center><button style="width:150px" onclick="search()">Get ID's</button></center>
+        </td></tr>
+    </table>
+
+
+    <div id="output"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type=text/javascript src="{{ url_for('static', filename='irsetuputil.js') }}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7yI9VPqxAiG-6vx9S9mPAMM5jhDPv0TY&libraries=places&callback=initMap" async defer></script>
+</body>
+
+</html>
